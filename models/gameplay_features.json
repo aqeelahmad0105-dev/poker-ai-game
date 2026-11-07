@@ -1,0 +1,25 @@
+{
+  "features": [
+    "c1_rank",
+    "c1_suit",
+    "c2_rank",
+    "c2_suit",
+    "is_pair",
+    "is_suited",
+    "high_card",
+    "low_card",
+    "street_num",
+    "pot_before",
+    "to_call",
+    "pot_odds",
+    "stack_before",
+    "players_active"
+  ],
+  "action_mapping": {
+    "0": "Fold",
+    "1": "Check/Call",
+    "2": "Bet/Raise"
+  },
+  "n_features": 14,
+  "paper_reference": "Tustanowski & Wozniak, 45th IBIMA Conference 2025"
+}
