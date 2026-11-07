@@ -1,0 +1,4 @@
+Experiment,Accuracy,Net Chips Won,Avg Profit / Hand,Stability (Std Dev)
+"Paper Baseline RF (Full Data, 100 Trees, Depth 10)",0.7180,"+18,577 chips",+2.30 chips,±0.0004
+"RF_8591 (Moderate Subset, Paper Star)",0.7081,"+18,284 chips",+2.24 chips,High
+"RF_2732 (Small Subset, v2_100k_RF_2732)",0.7032,"+19,943 chips",+2.42 chips,Moderate

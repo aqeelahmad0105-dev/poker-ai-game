@@ -1,0 +1,4 @@
+Setting,Number of Features,F1-Score,PR-AUC (Kaggle AP),Training Time
+"Baseline (All Features, Unweighted)",43,0.6429,0.7131,0.41s
+"Feature Selected (Stage 4c, Balanced)",27,0.6232,0.6993,0.50s
+Tuned Threshold (Optimal F1 = 0.48),27,0.6759,0.6993,0.50s

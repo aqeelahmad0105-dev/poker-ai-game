@@ -1,0 +1,6 @@
+Model Name,Model Family,Decision Accuracy,Total Profit (Chips),Stability Assessment
+Random Forest (Full),Supervised Ensemble,71.80%,"+18,577 chips",Exceptional (±0.0004)
+Random Forest (RF_8591),Supervised Ensemble,70.81%,"+18,284 chips",High (Star Model)
+DQN (Agent 2 - Best),Deep Q-Network,56.18%,"-5,991 chips",Moderate Volatility
+DQN (Agent 3 - Volatile),Deep Q-Network,59.23%,"-6,296 chips",Extreme Volatility
+DQN (Agent 6 - Small),Deep Q-Network,44.20%,"-8,609 chips",High Deficit
