@@ -742,8 +742,9 @@ class PokerRoom:
         if len(active) <= 1:
             winner = active[0]
             winner['chips'] += self.pot
-            winner['wins'] += 1
             self.action_log.append(f"🏆 ALL OPPONENTS FOLDED! {winner['name']} takes the pot of ${self.pot:,} chips!")
+            self.pot = 0
+            winner['wins'] += 1
             self.game_phase = 'SHOWDOWN'
             self.version += 1
             return
@@ -813,15 +814,18 @@ class PokerRoom:
         winners = [p for s, p in scored if s[:-1] == best_score]
 
         split = self.pot // len(winners)
-        for w in winners:
-            w['chips'] += split
+        remainder = self.pot % len(winners)
+        old_pot = self.pot
+        self.pot = 0
+        for idx, w in enumerate(winners):
+            w['chips'] += split + (1 if idx < remainder else 0)
             w['wins'] += 1
 
         if len(winners) == 1:
-            self.action_log.append(f"🎉 {winners[0]['name']} WINS with {scored[0][0][-1]} (+${self.pot:,} chips)!")
+            self.action_log.append(f"🎉 {winners[0]['name']} WINS with {scored[0][0][-1]} (+${old_pot:,} chips)!")
         else:
             names = " & ".join([w['name'] for w in winners])
-            self.action_log.append(f"🤝 SPLIT POT! {names} split ${self.pot:,} chips (${split:,} each)!")
+            self.action_log.append(f"🤝 SPLIT POT! {names} split ${old_pot:,} chips (${split:,} each)!")
         self.version += 1
 
     def handle_player_action(self, player_id, action_type, raise_amt=0):
