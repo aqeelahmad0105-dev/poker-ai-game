@@ -21,7 +21,7 @@ st.set_page_config(
 )
 
 # ==============================================================================
-# CASINO POKER CSS STYLING
+# RESPONSIVE CASINO POKER CSS STYLING (Mobile, Tablet & Desktop)
 # ==============================================================================
 POKER_CSS = """
 <style>
@@ -32,67 +32,79 @@ POKER_CSS = """
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Casino Felt Oval Table */
+/* Page container padding */
+.block-container {
+    padding-top: 1.2rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 1300px;
+}
+
+/* Casino Felt Oval Table (Desktop Default) */
 .felt-table {
     background: radial-gradient(ellipse at 50% 45%, #188651 0%, #0f5b36 60%, #0a3d24 100%);
-    border: 16px solid #42250f;
-    border-radius: 180px;
+    border: 14px solid #42250f;
+    border-radius: 160px;
     box-shadow: inset 0 0 50px rgba(0,0,0,0.85), 0 12px 35px rgba(0,0,0,0.9);
-    padding: 24px 18px;
-    margin: 10px auto 20px auto;
+    padding: 22px 16px;
+    margin: 8px auto 16px auto;
     position: relative;
     max-width: 1040px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Inner gold line on felt */
 .felt-table::before {
     content: "";
     position: absolute;
-    top: 14px; left: 14px; right: 14px; bottom: 14px;
+    top: 12px; left: 12px; right: 12px; bottom: 12px;
     border: 2px dashed rgba(255, 215, 0, 0.35);
-    border-radius: 160px;
+    border-radius: 140px;
     pointer-events: none;
 }
 
 /* Centered Pot Container */
 .pot-container {
     text-align: center;
-    margin: 4px 0 10px 0;
+    margin: 4px 0 8px 0;
 }
 .pot-chip-pill {
     background: linear-gradient(180deg, #ffd700 0%, #d4af37 50%, #996515 100%);
     color: #0b1015;
     font-weight: 900;
-    font-size: 19px;
-    padding: 6px 22px;
+    font-size: 18px;
+    padding: 5px 20px;
     border-radius: 30px;
     display: inline-block;
-    box-shadow: 0 4px 18px rgba(255, 215, 0, 0.45);
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.45);
     border: 2px solid #fff8dc;
     letter-spacing: 1px;
 }
 
-/* Realistic Poker Playing Cards */
+/* Realistic Poker Playing Cards (Desktop Default) */
 .poker-card {
     display: inline-block;
-    width: 58px;
-    height: 84px;
+    width: 56px;
+    height: 82px;
     background: #ffffff;
     border-radius: 7px;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     border: 1px solid #d4d4d4;
-    padding: 4px 5px;
+    padding: 3px 5px;
     margin: 0 2px;
     position: relative;
     font-family: Arial, sans-serif;
     user-select: none;
     vertical-align: middle;
+    box-sizing: border-box;
 }
 .card-red { color: #e74c3c !important; }
 .card-black { color: #1e272e !important; }
 
 .c-corner-top {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 900;
     line-height: 1.0;
     text-align: left;
@@ -101,15 +113,15 @@ POKER_CSS = """
     font-size: 24px;
     text-align: center;
     line-height: 1.0;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 .c-corner-bot {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 900;
     line-height: 1.0;
     text-align: right;
     position: absolute;
-    bottom: 4px;
+    bottom: 3px;
     right: 5px;
 }
 
@@ -123,19 +135,20 @@ POKER_CSS = """
         #0c2461 10px
     ) !important;
     border: 2px solid #ffffff !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.6) !important;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.6) !important;
 }
 
 /* Empty Community Card Slot */
 .card-slot-empty {
     display: inline-block;
-    width: 58px;
-    height: 84px;
+    width: 56px;
+    height: 82px;
     background: rgba(0, 0, 0, 0.25);
     border-radius: 7px;
     border: 2px dashed rgba(255, 215, 0, 0.4);
     margin: 0 2px;
     vertical-align: middle;
+    box-sizing: border-box;
 }
 
 /* Player Seat Pods */
@@ -143,15 +156,16 @@ POKER_CSS = """
     background: rgba(13, 24, 33, 0.92);
     border: 2px solid #233748;
     border-radius: 12px;
-    padding: 8px 10px;
+    padding: 7px 9px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     margin: 3px;
-    min-width: 120px;
+    min-width: 110px;
+    box-sizing: border-box;
 }
 .pod-active {
     border-color: #f1c40f !important;
-    box-shadow: 0 0 18px rgba(241, 196, 15, 0.75) !important;
+    box-shadow: 0 0 16px rgba(241, 196, 15, 0.8) !important;
 }
 .pod-hero {
     border: 3px solid #2ecc71 !important;
@@ -171,8 +185,8 @@ POKER_CSS = """
     font-weight: 900;
     font-size: 11px;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -186,29 +200,29 @@ POKER_CSS = """
     background: rgba(13, 27, 39, 0.92);
     border: 2px solid #34495e;
     border-radius: 12px;
-    padding: 14px 18px;
-    margin: 12px 0 18px 0;
+    padding: 12px 16px;
+    margin: 8px 0 14px 0;
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 .prob-bar-bg {
     background: #2c3e50;
     border-radius: 10px;
-    height: 18px;
+    height: 16px;
     width: 100%;
     overflow: hidden;
-    margin: 8px 0;
+    margin: 7px 0;
     border: 1px solid #4a627a;
 }
 .prob-bar-fill {
     height: 100%;
     border-radius: 10px;
-    transition: width 0.4s ease;
+    transition: width 0.3s ease;
 }
 
 /* Badges */
-.badge-rf { background: #2980b9; color: white; padding: 2px 6px; border-radius: 6px; font-size: 11px; font-weight: bold; }
-.badge-dqn { background: #d35400; color: white; padding: 2px 6px; border-radius: 6px; font-size: 11px; font-weight: bold; }
-.badge-human { background: #27ae60; color: white; padding: 2px 6px; border-radius: 6px; font-size: 11px; font-weight: bold; }
+.badge-rf { background: #2980b9; color: white; padding: 2px 5px; border-radius: 5px; font-size: 10px; font-weight: bold; }
+.badge-dqn { background: #d35400; color: white; padding: 2px 5px; border-radius: 5px; font-size: 10px; font-weight: bold; }
+.badge-human { background: #27ae60; color: white; padding: 2px 5px; border-radius: 5px; font-size: 10px; font-weight: bold; }
 
 /* Clean Minimalist Loading Spinner */
 .stSpinner > div {
@@ -221,6 +235,98 @@ POKER_CSS = """
 .stAppDeployButton,
 header[data-testid="stHeader"] {
     display: none !important;
+}
+
+/* ==============================================================================
+   RESPONSIVE DESIGN RULES FOR MOBILE & TABLET
+   ============================================================================== */
+@media screen and (max-width: 768px) {
+    .block-container {
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+        padding-top: 0.5rem !important;
+    }
+    .felt-table {
+        border-radius: 40px !important;
+        padding: 10px 4px !important;
+        border-width: 8px !important;
+        margin: 4px auto 12px auto !important;
+    }
+    .felt-table::before {
+        top: 6px !important; left: 6px !important; right: 6px !important; bottom: 6px !important;
+        border-radius: 32px !important;
+    }
+    .poker-card {
+        width: 38px !important;
+        height: 56px !important;
+        padding: 2px 2px !important;
+        margin: 0 1px !important;
+        border-radius: 4px !important;
+    }
+    .c-corner-top {
+        font-size: 9px !important;
+    }
+    .c-center-suit {
+        font-size: 16px !important;
+        margin-top: 4px !important;
+    }
+    .c-corner-bot {
+        font-size: 9px !important;
+        bottom: 2px !important;
+        right: 3px !important;
+    }
+    .card-slot-empty {
+        width: 38px !important;
+        height: 56px !important;
+        border-radius: 4px !important;
+        margin: 0 1px !important;
+    }
+    .player-pod {
+        padding: 4px 5px !important;
+        min-width: 68px !important;
+        max-width: 100px !important;
+        margin: 2px !important;
+        border-radius: 8px !important;
+        font-size: 10px !important;
+    }
+    .dealer-puck {
+        width: 14px !important;
+        height: 14px !important;
+        font-size: 8px !important;
+    }
+    .pot-chip-pill {
+        font-size: 13px !important;
+        padding: 3px 12px !important;
+    }
+    .badge-rf, .badge-dqn, .badge-human {
+        font-size: 8px !important;
+        padding: 1px 3px !important;
+    }
+    .hud-card {
+        padding: 10px 12px !important;
+        margin: 6px 0 !important;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .felt-table {
+        border-radius: 90px !important;
+        padding: 16px 10px !important;
+        border-width: 10px !important;
+    }
+    .poker-card {
+        width: 48px !important;
+        height: 70px !important;
+    }
+    .card-slot-empty {
+        width: 48px !important;
+        height: 70px !important;
+    }
+    .player-pod {
+        padding: 6px 8px !important;
+        min-width: 95px !important;
+        font-size: 12px !important;
+    }
 }
 </style>
 """
@@ -346,13 +452,13 @@ def eval_7_cards(cards):
             best = score
     return best
 
-# Fast Monte Carlo Poker Hand Odds Simulator (Poker Patio style)
-def calculate_win_odds(hole_cards, board_cards, n_opponents=4, n_sims=200):
+# Deterministic Monte Carlo Poker Hand Odds Simulator (Zero Jitter on Rerun)
+def calculate_win_odds(hole_cards, board_cards, n_opponents=4, n_sims=300):
     if not hole_cards or len(hole_cards) < 2:
         return 20.0, 0.0, "Waiting for deal..."
     
-    hole_tuples = [card_to_tuple(c) for c in hole_cards]
-    board_tuples = [card_to_tuple(c) for c in board_cards]
+    hole_tuples = tuple(sorted([card_to_tuple(c) for c in hole_cards]))
+    board_tuples = tuple(sorted([card_to_tuple(c) for c in board_cards]))
     used = set(hole_tuples + board_tuples)
     
     all_cards = [(r, s) for r in range(2, 15) for s in ['s', 'h', 'd', 'c']]
@@ -362,10 +468,15 @@ def calculate_win_odds(hole_cards, board_cards, n_opponents=4, n_sims=200):
     wins = 0
     ties = 0
     
+    # Deterministic seed based on hole cards, board, and active opponents
+    # Fixes probability jumping jitter on every 1.5s refresh!
+    seed_val = hash((hole_tuples, board_tuples, n_opponents)) & 0xffffffff
+    sim_rng = random.Random(seed_val)
+    
     for _ in range(n_sims):
-        random.shuffle(remaining_deck)
-        sim_board = board_tuples + remaining_deck[:cards_needed]
-        hero_score = eval_7_cards(hole_tuples + sim_board)
+        sim_rng.shuffle(remaining_deck)
+        sim_board = list(board_tuples) + remaining_deck[:cards_needed]
+        hero_score = eval_7_cards(list(hole_tuples) + sim_board)
         
         sim_opp_deck = remaining_deck[cards_needed:]
         best_opp = None
@@ -383,7 +494,7 @@ def calculate_win_odds(hole_cards, board_cards, n_opponents=4, n_sims=200):
     win_rate = (wins / n_sims) * 100.0
     tie_rate = (ties / n_sims) * 100.0
     
-    current_hand_name = eval_7_cards(hole_tuples + board_tuples)[-1] if board_tuples else eval_5_cards(hole_tuples + [(2,'s'),(3,'h'),(4,'d')])[-1].replace('High Card', 'Hole Cards')
+    current_hand_name = eval_7_cards(list(hole_tuples) + list(board_tuples))[-1] if board_tuples else eval_5_cards(list(hole_tuples) + [(2,'s'),(3,'h'),(4,'d')])[-1].replace('High Card', 'Hole Cards')
     return win_rate, tie_rate, current_hand_name
 
 # ==============================================================================
@@ -430,44 +541,51 @@ def load_models():
 RF_MODEL, DQN_VARIANTS = load_models()
 
 def get_ai_action(model_family, hole_cards, street_idx, pot, to_call, stack, active_count):
+    try:
+        c1, c2 = hole_cards[0], hole_cards[1]
+        r1, s1 = card_rank(c1), card_suit(c1)
+        r2, s2 = card_rank(c2), card_suit(c2)
+        is_pair = 1 if r1 == r2 else 0
+        is_suited = 1 if s1 == s2 else 0
+        high_card = max(r1, r2)
+        low_card = min(r1, r2)
+        pot_odds = to_call / (pot + to_call + 1e-5)
+        
+        feats = [
+            r1, REV_SUIT_MAP.get(s1, 0),
+            r2, REV_SUIT_MAP.get(s2, 0),
+            is_pair, is_suited, high_card, low_card,
+            street_idx, pot, to_call, pot_odds, stack, active_count
+        ]
+        
+        if 'Random Forest' in model_family and RF_MODEL is not None:
+            df_feat = pd.DataFrame([feats], columns=FEATURE_COLS)
+            action = int(RF_MODEL.predict(df_feat)[0])
+            return action, "100-Tree Consensus"
+
+        elif 'Deep Q-Network' in model_family and DQN_VARIANTS:
+            agent_key = 'Agent 2'
+            for k in ['Agent 3', 'Agent 4', 'Agent 5']:
+                if k in model_family:
+                    agent_key = k
+                    break
+            w = DQN_VARIANTS.get(agent_key, list(DQN_VARIANTS.values())[0])
+            x = (np.array(feats) - NORM_MEANS) / NORM_STDS
+            x = x.reshape(1, -1)
+            z1 = np.maximum(0, np.dot(x, w['W1']) + w['b1'])
+            z2 = np.maximum(0, np.dot(z1, w['W2']) + w['b2'])
+            q = np.dot(z2, w['W3']) + w['b3']
+            q = np.array(q).flatten()
+            action = int(np.argmax(q))
+            return action, f"Q-Values: [F: {float(q[0]):.1f}, C: {float(q[1]):.1f}, R: {float(q[2]):.1f}]"
+
+    except Exception:
+        pass
+
+    # Safe heuristic fallback
     c1, c2 = hole_cards[0], hole_cards[1]
-    r1, s1 = card_rank(c1), card_suit(c1)
-    r2, s2 = card_rank(c2), card_suit(c2)
-    is_pair = 1 if r1 == r2 else 0
-    is_suited = 1 if s1 == s2 else 0
-    high_card = max(r1, r2)
-    low_card = min(r1, r2)
-    pot_odds = to_call / (pot + to_call + 1e-5)
-    
-    feats = [
-        r1, REV_SUIT_MAP.get(s1, 0),
-        r2, REV_SUIT_MAP.get(s2, 0),
-        is_pair, is_suited, high_card, low_card,
-        street_idx, pot, to_call, pot_odds, stack, active_count
-    ]
-    
-    if 'Random Forest' in model_family and RF_MODEL is not None:
-        df_feat = pd.DataFrame([feats], columns=FEATURE_COLS)
-        action = int(RF_MODEL.predict(df_feat)[0])
-        return action, "100-Tree Consensus"
-
-    elif 'Deep Q-Network' in model_family and DQN_VARIANTS:
-        # Determine agent flavor
-        agent_key = 'Agent 2'
-        for k in ['Agent 3', 'Agent 4', 'Agent 5']:
-            if k in model_family:
-                agent_key = k
-                break
-        w = DQN_VARIANTS.get(agent_key, list(DQN_VARIANTS.values())[0])
-        x = (np.array(feats) - NORM_MEANS) / NORM_STDS
-        x = x.reshape(1, -1)
-        z1 = np.maximum(0, np.dot(x, w['W1']) + w['b1'])
-        z2 = np.maximum(0, np.dot(z1, w['W2']) + w['b2'])
-        q = np.dot(z2, w['W3']) + w['b3'][0]
-        action = int(np.argmax(q))
-        return action, f"Q-Values: [F: {q[0]:.1f}, C: {q[1]:.1f}, R: {q[2]:.1f}]"
-
-    # Smart heuristic fallback
+    high_card = max(card_rank(c1), card_rank(c2))
+    is_pair = (card_rank(c1) == card_rank(c2))
     if is_pair or high_card >= 12:
         return (2 if high_card >= 13 else 1), "Pot Strength"
     return (0 if to_call > 20 else 1), "Pot Odds"
@@ -496,6 +614,7 @@ class PokerRoom:
         self.hand_num = 0
         self.action_log = []
         self.acted_in_round = set()
+        self.turn_start_time = time.time()
         self.version = 0
         self.players = []
         self._init_roster(host_name, host_token)
@@ -609,9 +728,15 @@ class PokerRoom:
 
         first_act = (bb_idx + 1) % n if n > 2 else sb_idx
         self.current_actor_idx = first_act
+        self.turn_start_time = time.time()
         self.process_bots()
 
     def advance_to_next_actor(self):
+        self.advance_to_next_actor_internal()
+        if self.game_phase not in ['SHOWDOWN', 'WAITING_FOR_PLAYERS']:
+            self.process_bots()
+
+    def advance_to_next_actor_internal(self):
         n = len(self.players)
         active = [p for p in self.players if not p['folded']]
         if len(active) <= 1:
@@ -631,16 +756,17 @@ class PokerRoom:
                     break
 
         if all_settled:
-            self.advance_street()
+            self.advance_street_internal()
             return
 
         next_idx = (self.current_actor_idx + 1) % n
         while self.players[next_idx]['folded'] or self.players[next_idx]['chips'] <= 0:
             next_idx = (next_idx + 1) % n
         self.current_actor_idx = next_idx
+        self.turn_start_time = time.time()
         self.version += 1
 
-    def advance_street(self):
+    def advance_street_internal(self):
         for p in self.players:
             p['current_bet'] = 0
         self.current_highest_bet = 0
@@ -669,7 +795,7 @@ class PokerRoom:
         while self.players[cur]['folded'] or self.players[cur]['chips'] <= 0:
             cur = (cur + 1) % n
         self.current_actor_idx = cur
-        self.process_bots()
+        self.turn_start_time = time.time()
 
     def resolve_showdown(self):
         active = [p for p in self.players if not p['folded']]
@@ -733,14 +859,12 @@ class PokerRoom:
 
         self.version += 1
         self.advance_to_next_actor()
-        if self.game_phase not in ['SHOWDOWN', 'WAITING_FOR_PLAYERS']:
-            self.process_bots()
         return True, "Action processed"
 
     def process_bots(self):
-        max_loop = 30
-        while max_loop > 0 and self.game_phase in ['PREFLOP', 'FLOP', 'TURN', 'RIVER']:
-            max_loop -= 1
+        max_steps = 30
+        while max_steps > 0 and self.game_phase in ['PREFLOP', 'FLOP', 'TURN', 'RIVER']:
+            max_steps -= 1
             actor = self.get_current_actor()
             if actor is None or actor['is_human'] or actor['folded'] or actor['chips'] <= 0:
                 break
@@ -777,7 +901,7 @@ class PokerRoom:
                 self.action_log.append(f"🟢 {actor['name']} {act_txt}. [{reason}]")
                 self.acted_in_round.add(actor['id'])
 
-            self.advance_to_next_actor()
+            self.advance_to_next_actor_internal()
 
 # ==============================================================================
 # GLOBAL SHARED ROOMS (Across All Browser Sessions)
@@ -800,11 +924,11 @@ if 'active_room_id' not in st.session_state:
 # ==============================================================================
 if st.session_state.active_room_id is None:
     st.html("""
-    <div style="text-align: center; padding: 30px 10px 15px 10px;">
-        <h1 style="font-size: 46px; font-weight: 900; color: #ffd700; letter-spacing: 2px; text-shadow: 0 4px 20px rgba(255,215,0,0.4); margin-bottom: 5px;">
+    <div style="text-align: center; padding: 25px 8px 12px 8px;">
+        <h1 style="font-size: clamp(26px, 5vw, 44px); font-weight: 900; color: #ffd700; letter-spacing: 1px; text-shadow: 0 4px 20px rgba(255,215,0,0.4); margin-bottom: 5px;">
             ♠️ TEXAS HOLD'EM MULTIPLAYER AI CHAMPIONSHIP
         </h1>
-        <p style="font-size: 19px; color: #cbd5e1; max-width: 820px; margin: 0 auto 20px auto;">
+        <p style="font-size: clamp(14px, 2.5vw, 18px); color: #cbd5e1; max-width: 820px; margin: 0 auto 15px auto;">
             Play live with friends online while competing against trained <b>Random Forest</b> and <b>Deep Q-Network (DQN)</b> bots!
         </p>
     </div>
@@ -865,12 +989,13 @@ if st.session_state.active_room_id is None:
 
         with c2:
             st.html("""
-            <div style="background: rgba(18, 30, 44, 0.95); border: 2px solid #334e68; border-radius: 16px; padding: 22px 26px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); margin-top: 15px;">
+            <div style="background: rgba(18, 30, 44, 0.95); border: 2px solid #334e68; border-radius: 16px; padding: 20px 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); margin-top: 15px;">
                 <h4 style="color: #63b3ed; margin-top: 0;">🌐 How Multiplayer Works</h4>
                 <div style="font-size: 14px; color: #e2e8f0; line-height: 1.8;">
-                    • <b>Room Sync:</b> Multiple players can connect from different devices or browser tabs to the same room code.<br>
-                    • <b>Hole Card Privacy:</b> You only see your own cards face-up; opponents' cards remain hidden until Showdown.<br>
-                    • <b>Live Auto-Refresh:</b> The table seamlessly updates every 1.5 seconds so you see friends' and bots' moves in real-time.<br>
+                    • <b>Device Adaptive:</b> Optimized responsive display for Phones, Tablets, and PCs.<br>
+                    • <b>⏱️ 30s Turn Clock:</b> Players have 30 seconds to act, preventing games from freezing.<br>
+                    • <b>Hole Card Privacy:</b> You only see your own cards face-up until Showdown.<br>
+                    • <b>Zero-Jitter Odds:</b> Deterministic Monte Carlo simulation maintains stable win probabilities throughout each street.<br>
                     • <b>Academic Models:</b> AI bots predict actions using 100-Tree Random Forest consensus and Deep Q-Network Q-values.
                 </div>
             </div>
@@ -933,13 +1058,34 @@ else:
                 my_player = p
                 break
 
+        # Check 30-Second Turn Clock & Auto-Action
+        remaining = 30
+        timer_color = "#2ecc71"
+        if room.game_phase not in ['WAITING_FOR_PLAYERS', 'SHOWDOWN']:
+            elapsed = time.time() - getattr(room, 'turn_start_time', time.time())
+            remaining = max(0, int(30 - elapsed))
+            timer_color = "#2ecc71" if remaining > 15 else ("#f1c40f" if remaining > 7 else "#e74c3c")
+            
+            # If 30 seconds have elapsed, auto-act so the table NEVER freezes!
+            if elapsed >= 30:
+                actor = room.get_current_actor()
+                if actor and not actor['folded']:
+                    to_call = max(0, room.current_highest_bet - actor['current_bet'])
+                    if to_call == 0:
+                        room.action_log.append(f"⏱️ 30s Clock Expired: {actor['name']} auto-checked.")
+                        room.handle_player_action(actor['id'], 'check_call')
+                    else:
+                        room.action_log.append(f"⏱️ 30s Clock Expired: {actor['name']} auto-folded.")
+                        room.handle_player_action(actor['id'], 'fold')
+                    st.rerun()
+
         # Top Control Bar
         top_l, top_m, top_r = st.columns([2.5, 2.5, 1.5])
         with top_l:
             st.markdown(f"**🃏 Hand #{room.hand_num}** | 🏠 Room: **`{room_id}`** | Stakes: **${room.sb} / ${room.bb}**")
         with top_m:
             phase_color = "#2ecc71" if room.game_phase not in ['WAITING_FOR_PLAYERS', 'SHOWDOWN'] else "#f1c40f"
-            st.markdown(f"<div style='text-align:center; font-size:16px; font-weight:bold; color:{phase_color};'>ROUND: {room.game_phase}</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='text-align:center; font-size:15px; font-weight:bold; color:{phase_color};'>ROUND: {room.game_phase}</div>", unsafe_allow_html=True)
         with top_r:
             if st.button("🚪 Exit to Lobby"):
                 st.session_state.active_room_id = None
@@ -974,7 +1120,7 @@ else:
         col_felt, col_hud = st.columns([2.3, 1.2])
 
         with col_felt:
-            # 1. Render Player Pod Helper
+            # Render Player Pod Helper
             def render_pod(p):
                 is_me = (p['token'] == my_token)
                 is_actor = (p['id'] == room.current_actor_idx and room.game_phase != 'SHOWDOWN')
@@ -992,7 +1138,7 @@ else:
                 dealer_badge = '<span class="dealer-puck">D</span>' if p['id'] == room.dealer_pos else ""
                 turn_badge = ""
                 if is_actor and not is_folded:
-                    turn_badge = '<div style="color:#2ecc71; font-weight:900; font-size:11px; margin-top:2px;">👉 YOUR TURN!</div>' if is_me else '<div style="color:#f1c40f; font-weight:900; font-size:11px; margin-top:2px;">⭐ ACTING...</div>'
+                    turn_badge = f'<div style="color:#2ecc71; font-weight:900; font-size:10px; margin-top:2px;">👉 YOUR TURN ({remaining}s)</div>' if is_me else f'<div style="color:#f1c40f; font-weight:900; font-size:10px; margin-top:2px;">⭐ ACTING ({remaining}s)</div>'
                 
                 badge_cls = "human" if p['is_human'] else ("rf" if 'Random Forest' in p['family'] else "dqn")
                 badge_label = "Human" if p['is_human'] else p['family'].split('(')[0].strip()
@@ -1003,13 +1149,12 @@ else:
                 <div class="{cls}">
                     {dealer_badge}<b>{p_label}</b> <span class="badge-{badge_cls}">{badge_label}</span><br>
                     <span style="color:#2ecc71; font-weight:bold;">${p['chips']:,}</span> | Bet: ${p['current_bet']}<br>
-                    <div style="margin-top:5px;">{c_html}</div>
+                    <div style="margin-top:4px;">{c_html}</div>
                     {turn_badge}
                 </div>
                 """
 
-            # 2. Divide seats into Top, Middle (Sides), and Bottom
-            n_p = len(room.players)
+            # Divide seats into Top, Middle (Sides), and Bottom
             other_players = [p for p in room.players if p['token'] != my_token]
             top_players = other_players[:max(1, len(other_players) // 2)]
             side_players = other_players[len(top_players):]
@@ -1032,20 +1177,20 @@ else:
 
             full_felt_html = f"""
             <div class="felt-table">
-                <div style="display:flex; justify-content:space-around; margin-bottom:12px;">
+                <div style="display:flex; justify-content:space-around; margin-bottom:8px; flex-wrap:wrap;">
                     {top_pods_html}
                 </div>
-                <div style="display:flex; align-items:center; justify-content:space-between; margin:10px 0;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin:6px 0;">
                     <div style="width:23%;">{left_side_pod}</div>
                     <div style="width:50%; text-align:center;">
                         <div class="pot-container">
                             <div class="pot-chip-pill">🏆 POT: ${room.pot:,} CHIPS</div>
                         </div>
-                        <div style="margin-top:8px;">{comm_html}</div>
+                        <div style="margin-top:6px; white-space:nowrap;">{comm_html}</div>
                     </div>
                     <div style="width:23%;">{right_side_pod}</div>
                 </div>
-                <div style="display:flex; justify-content:center; align-items:center; margin-top:14px;">
+                <div style="display:flex; justify-content:center; align-items:center; margin-top:8px; flex-wrap:wrap;">
                     {hero_pod_html}
                     {extra_bottom_html}
                 </div>
@@ -1053,8 +1198,7 @@ else:
             """
             st.html(full_felt_html)
 
-            # Action Bar
-            st.markdown("#### 🎮 Action Controls")
+            # Action Bar & Turn Clock Display
             current_actor = room.get_current_actor()
             is_my_turn = (my_player is not None and current_actor is not None and current_actor['id'] == my_player['id'] and room.game_phase != 'SHOWDOWN')
 
@@ -1066,6 +1210,17 @@ else:
                 to_call = max(0, room.current_highest_bet - my_player['current_bet'])
                 to_call = min(to_call, my_player['chips'])
                 
+                # Turn Clock Banner
+                timer_pct = int((remaining / 30.0) * 100)
+                st.html(f"""
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                    <span style="font-weight:900; color:{timer_color}; font-size:13px;">⏱️ YOUR TURN: {remaining}s left to act</span>
+                    <div style="flex:1; height:6px; background:#334155; border-radius:3px; overflow:hidden;">
+                        <div style="width:{timer_pct}%; height:100%; background:{timer_color}; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+                """)
+
                 b1, b2, b3, b4 = st.columns([1.5, 1.5, 2.5, 1.2])
                 call_text = "🟢 CHECK (Free)" if to_call == 0 else f"🟢 CALL (${to_call})"
                 if b1.button(call_text, disabled=my_player['folded']):
@@ -1092,7 +1247,7 @@ else:
                     st.rerun()
             else:
                 actor_name = current_actor['name'] if current_actor else "opponent"
-                st.info(f"⏳ Waiting for **{actor_name}** to act... (Table automatically updates every 1.5s)")
+                st.info(f"⏳ Waiting for **{actor_name}** to act... (30s Clock: **{remaining}s** remaining)")
 
         # Right HUD: Probabilities, Leaderboard, Action Log
         with col_hud:
@@ -1103,14 +1258,14 @@ else:
                     my_player['hole'],
                     room.community_cards,
                     n_opponents=max(1, active_opps),
-                    n_sims=200
+                    n_sims=300
                 )
                 bar_color = "#2ecc71" if win_pct >= 55 else ("#f1c40f" if win_pct >= 35 else "#e74c3c")
                 st.html(f"""
                 <div class="hud-card">
-                    <div style="font-size:13px; color:#a0aec0; text-transform:uppercase;">Current Made Hand:</div>
-                    <div style="font-size:18px; font-weight:bold; color:#ffd700; margin-bottom:8px;">⭐ {hand_str}</div>
-                    <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:bold;">
+                    <div style="font-size:12px; color:#a0aec0; text-transform:uppercase;">Current Made Hand:</div>
+                    <div style="font-size:17px; font-weight:bold; color:#ffd700; margin-bottom:6px;">⭐ {hand_str}</div>
+                    <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:bold;">
                         <span style="color:#2ecc71;">WIN: {win_pct:.1f}%</span>
                         <span style="color:#63b3ed;">TIE: {tie_pct:.1f}%</span>
                         <span style="color:#e74c3c;">LOSE: {100.0 - win_pct - tie_pct:.1f}%</span>
@@ -1118,7 +1273,7 @@ else:
                     <div class="prob-bar-bg">
                         <div class="prob-bar-fill" style="width: {max(5, win_pct)}%; background: {bar_color};"></div>
                     </div>
-                    <div style="font-size:11px; color:#718096; text-align:right;">Real-Time Monte Carlo (200 sims)</div>
+                    <div style="font-size:10px; color:#718096; text-align:right;">Deterministic Monte Carlo (300 sims)</div>
                 </div>
                 """)
 
@@ -1140,7 +1295,7 @@ else:
             st.dataframe(pd.DataFrame(lead_rows), hide_index=True)
 
             st.markdown("### 📜 Live Table Feed")
-            log_box = st.container(height=200)
+            log_box = st.container(height=180)
             with log_box:
                 for item in reversed(room.action_log[-20:]):
                     st.markdown(f"<small>{item}</small>", unsafe_allow_html=True)
