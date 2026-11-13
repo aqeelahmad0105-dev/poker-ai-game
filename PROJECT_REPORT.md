@@ -12,7 +12,10 @@
 ---
 
 ### Team Information
-* **Student Name(s):** Ghulam Abbas & Aqeel Ahmad
+* **Team Members & Roll Numbers:**
+  * Aqeel Ahmad (Roll No: **24F-0033**)
+  * Naveed Mehdi (Roll No: **24F-0037**)
+  * Rahim Ijaz (Roll No: **24F-0045**)
 * **Degree Program:** BS Computer Science (BS CS)
 * **Course:** CL3001 Machine Learning - Lab
 * **Campus:** FAST-NUCES Chiniot-Faisalabad Campus

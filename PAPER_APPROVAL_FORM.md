@@ -10,8 +10,8 @@
 | Field | Details |
 | :--- | :--- |
 | **Course Code & Title** | CL3001: Machine Learning - Lab (Spring 2026) |
-| **Student Name(s)** | Ghulam Abbas / Aqeel Ahmad |
-| **Roll Number(s)** | [Student Roll Numbers] |
+| **Student Name(s)** | Aqeel Ahmad, Naveed Mehdi, Rahim Ijaz |
+| **Roll Number(s)** | 24F-0033, 24F-0037, 24F-0045 |
 | **Submission Date** | November 2026 |
 | **Project GitHub URL** | [https://github.com/aqeelahmad0105-dev/poker-ai-game](https://github.com/aqeelahmad0105-dev/poker-ai-game) |
 

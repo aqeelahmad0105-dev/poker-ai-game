@@ -6,4 +6,5 @@ venv/
 .env
 .ipynb_checkpoints/
 .gemini/
-
+~$*
+*.html
