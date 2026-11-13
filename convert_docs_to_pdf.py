@@ -304,6 +304,8 @@ def main():
     print("\n--- Converting Deliverable 1: Paper Approval Form ---")
     convert_md_to_html(approval_md, approval_html, "FAST-NUCES Paper Approval Form")
     render_html_to_pdf(approval_html, approval_pdf)
+    if os.path.exists(approval_html):
+        os.remove(approval_html)
 
     # 2. Deliverable 3: Project Report
     report_md = os.path.join(workspace, "PROJECT_REPORT.md")
@@ -313,8 +315,11 @@ def main():
     print("\n--- Converting Deliverable 3: Semester Project Report ---")
     convert_md_to_html(report_md, report_html, "CL3001 Machine Learning Lab Project Report")
     render_html_to_pdf(report_html, report_pdf)
+    if os.path.exists(report_html):
+        os.remove(report_html)
 
     print("\nAll Markdown files successfully converted to high-quality PDF!")
 
 if __name__ == "__main__":
     main()
+
